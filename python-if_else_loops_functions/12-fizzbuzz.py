@@ -9,6 +9,17 @@ def fizzbuzz():
             print("Buzz", end="")
         else:
             print("{}".format(i), end="")
-        
-        # Hər elementdən sonra boşluq çap edirik
-        print(" ", end="")
+        print(" ", end=""):
+
+
+
+
+
+
+
+
+
+
+
+
+
