@@ -2,8 +2,9 @@
 import sys
 
 if __name__ == "__main__":
-    # sys.argv[0] skriptin adıdır, ona görə arqument sayını tapmaq üçün 1 çıxırıq
-    count = len(sys.argv) - 1
+    # sys.argv-dən faylın adını çıxırıq ki, arqument sayını tapaq
+    argv = sys.argv[1:]
+    count = len(argv)
 
     if count == 0:
         print("0 arguments.")
@@ -12,6 +13,5 @@ if __name__ == "__main__":
     else:
         print("{} arguments:".format(count))
 
-    # Hər bir arqumenti dövr (loop) vasitəsilə çap edirik
-    for i in range(1, count + 1):
-        print("{}: {}".format(i, sys.argv[i]))
+    for i, arg in enumerate(argv, 1):
+        print("{}: {}".format(i, arg))
