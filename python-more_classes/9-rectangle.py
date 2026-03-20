@@ -122,3 +122,10 @@ class Rectangle:
             return rect_2
         else:
             return rect_1
+
+    @classmethod
+    def square(cls, size=0):
+        '''
+        class method that creates square
+        '''
+        return Rectangle(size, size)
