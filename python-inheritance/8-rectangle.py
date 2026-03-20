@@ -1,8 +1,11 @@
 #!/usr/bin/python3
 """
 Bu modul 'Rectangle' (Düzbucaqlı) sinfini ehtiva edir.
-'BaseGeometry' sinfindən miras alır.
+Bu sinif 'BaseGeometry' sinfindən miras alır.
 """
+
+
+# Importu bu şəkildə etmək daha təhlükəsizdir
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
