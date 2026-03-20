@@ -1,27 +1,19 @@
 #!/usr/bin/python3
 """
 Bu modul 'add_integer' funksiyasını ehtiva edir.
-Modulun məqsədi iki ədədi təhlükəsiz şəkildə toplamaqdır.
 """
 
 
 def add_integer(a, b=98):
     """
-    İki tam və ya onluq ədədi toplayır.
-
-    Arqumentlər:
-        a: Birinci ədəd (int və ya float).
-        b: İkinci ədəd (int və ya float), susmaya görə 98.
-
-    Xətalar:
-        TypeError: Əgər a və ya b int/float deyilsə.
-
-    Nəticə:
-        İki ədədin cəmi (int).
+    İki ədədi toplayır. a və b mütləq int və ya float olmalıdır.
     """
-    if not isinstance(a, (int, float)):
+    if type(a) not in [int, float]:
         raise TypeError("a must be an integer")
-    if not isinstance(b, (int, float)):
+    if type(b) not in [int, float]:
         raise TypeError("b must be an integer")
 
+    # Əgər ədəd infinity (sonsuzluq) və ya NaN-dırsa, casting xəta verə bilər
+    # Amma tapşırıq bizdən float-u int-ə çevirməyi tələb edir.
+    
     return int(a) + int(b)
