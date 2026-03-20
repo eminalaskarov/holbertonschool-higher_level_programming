@@ -9,6 +9,7 @@ class Rectangle:
     Rectangle class
     """
     number_of_instances = 0
+    print_symbol = '#'
 
     def __init__(self, width=0, height=0):
         """
@@ -80,15 +81,15 @@ class Rectangle:
         '''
         str represtantion of rectangle
         '''
-        str = ''
+        mystr = ''
         if self.__width == 0 or self.__height == 0:
-            return str
+            return mystr
         for _ in range(self.__height):
-            str += '#' * self.__width
+            mystr += str(self.print_symbol) * self.__width
             if _ == self.__height - 1:
                 break
-            str += '\n'
-        return str
+            mystr += '\n'
+        return mystr
 
     def __repr__(self):
         '''
