@@ -25,9 +25,6 @@ class Square:
     def size(self):
         """
         __size dəyərini geri qaytarır (Getter).
-
-        Nəticə:
-            Kvadratın ölçüsü.
         """
         return self.__size
 
@@ -35,9 +32,6 @@ class Square:
     def size(self, value):
         """
         __size dəyərini təyin edir (Setter).
-
-        Arqumentlər:
-            value (int): Yeni ölçü dəyəri.
 
         Xətalar:
             TypeError: Əgər value integer deyilsə.
@@ -52,8 +46,17 @@ class Square:
     def area(self):
         """
         Kvadratın sahəsini hesablayır.
-
-        Nəticə:
-            Kvadratın sahəsi (int).
         """
         return self.__size ** 2
+
+    def my_print(self):
+        """
+        Kvadratı '#' işarələri ilə standart çıxışa (stdout) çap edir.
+        Əgər size 0-dırsa, boş bir sətir çap edir.
+        """
+        if self.__size == 0:
+            print("")
+            return
+
+        for i in range(self.__size):
+            print("#" * self.__size)
