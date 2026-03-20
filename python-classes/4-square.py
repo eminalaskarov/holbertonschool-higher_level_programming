@@ -18,16 +18,36 @@ class Square:
 
         Arqumentlər:
             size (int): Kvadratın ölçüsü, susmaya görə 0.
+        """
+        self.size = size
+
+    @property
+    def size(self):
+        """
+        __size dəyərini geri qaytarır (Getter).
+
+        Nəticə:
+            Kvadratın ölçüsü.
+        """
+        return self.__size
+
+    @size.setter
+    def size(self, value):
+        """
+        __size dəyərini təyin edir (Setter).
+
+        Arqumentlər:
+            value (int): Yeni ölçü dəyəri.
 
         Xətalar:
-            TypeError: Əgər size integer deyilsə.
-            ValueError: Əgər size 0-dan kiçikdirsə.
+            TypeError: Əgər value integer deyilsə.
+            ValueError: Əgər value 0-dan kiçikdirsə.
         """
-        if not isinstance(size, int):
+        if not isinstance(value, int):
             raise TypeError("size must be an integer")
-        if size < 0:
+        if value < 0:
             raise ValueError("size must be >= 0")
-        self.__size = size
+        self.__size = value
 
     def area(self):
         """
