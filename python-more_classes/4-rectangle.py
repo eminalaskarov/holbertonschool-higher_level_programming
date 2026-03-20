@@ -86,3 +86,12 @@ class Rectangle:
                 break
             str += '\n'
         return str
+
+    def __repr__(self):
+        '''
+        repr of instance
+        '''
+        width = str(self.__width)
+        height = str(self.__height)
+        mystr = "Rectangle(" + width + ", " + height + ")"
+        return mystr
