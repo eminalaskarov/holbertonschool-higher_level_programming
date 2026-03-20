@@ -1,39 +1,37 @@
-==================================
-How to use 2-matrix_divided module
-==================================
+The ``3-say_my_name`` module
+============================
 
-Importing the function:
-    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+Using ``say_my_name``
+---------------------
 
-Normal case:
-    >>> matrix = [[1, 2, 3], [4, 5, 6]]
-    >>> matrix_divided(matrix, 3)
-    [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
 
-Division by float:
-    >>> matrix_divided([[10, 20], [30, 40]], 2.5)
-    [[4.0, 8.0], [12.0, 16.0]]
+    >>> say_my_name("John", "Smith")
+    My name is John Smith
 
-Error: div is zero:
-    >>> matrix_divided([[1, 2], [3, 4]], 0)
+    >>> say_my_name("Walter", "White")
+    My name is Walter White
+
+    >>> say_my_name("Bob")
+    My name is Bob 
+
+    >>> say_my_name(12, "White")
     Traceback (most recent call last):
         ...
-    ZeroDivisionError: division by zero
+    TypeError: first_name must be a string
 
-Error: div is not a number:
-    >>> matrix_divided([[1, 2], [3, 4]], "three")
+    >>> say_my_name("John", 12)
     Traceback (most recent call last):
         ...
-    TypeError: div must be a number
+    TypeError: last_name must be a string
 
-Error: different row sizes:
-    >>> matrix_divided([[1, 2, 3], [4, 5]], 2)
+    >>> say_my_name("", "")
+    My name is  
+
+    >>> say_my_name("Jean-Luc", "Picard")
+    My name is Jean-Luc Picard
+
+    >>> say_my_name()
     Traceback (most recent call last):
         ...
-    TypeError: Each row of the matrix must have the same size
-
-Error: matrix elements not numbers:
-    >>> matrix_divided([[1, "two"], [3, 4]], 2)
-    Traceback (most recent call last):
-        ...
-    TypeError: matrix must be a matrix (list of lists) of integers/floats
+    TypeError: say_my_name() missing 1 required positional argument: 'first_name'
