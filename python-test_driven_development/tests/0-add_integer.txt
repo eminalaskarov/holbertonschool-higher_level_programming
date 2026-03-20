@@ -1,0 +1,33 @@
+===============================
+How to use 0-add_integer module
+===============================
+
+Importing the function:
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+Normal integers:
+    >>> add_integer(1, 2)
+    3
+    >>> add_integer(100, -2)
+    98
+
+Default value for b:
+    >>> add_integer(2)
+    100
+
+Floats (should be casted to integers):
+    >>> add_integer(100.3, -2)
+    98
+    >>> add_integer(3.14, 0.86)
+    3
+
+Handling errors:
+    >>> add_integer(4, "School")
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+
+    >>> add_integer(None)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
