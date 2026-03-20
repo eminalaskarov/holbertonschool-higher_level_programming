@@ -7,11 +7,14 @@ Bu modul Holberton/ALX layihəsi üçün hazırlanıb.
 
 def add_integer(a, b=98):
     """
-    İki ədədi (int və ya float) toplayır və tam ədəd qaytarır.
+    İki tam və ya onluq ədədi toplayır.
 
     Arqumentlər:
-        a: Birinci ədəd.
-        b: İkinci ədəd (susmaya görə 98).
+        a: Birinci ədəd (int və ya float).
+        b: İkinci ədəd (int və ya float), susmaya görə 98.
+
+    Xətalar:
+        TypeError: Əgər a və ya b int və ya float deyilsə.
 
     Nəticə:
         İki ədədin cəmi (int).
