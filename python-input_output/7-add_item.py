@@ -1,19 +1,26 @@
 #!/usr/bin/python3
-'''
-Docstring for python-input_output.7-add_item
-'''
+"""
+Adds all arguments to a Python list and saves them to a JSON file.
+"""
 import sys
 import os
+
+
+# Importing functions from previous tasks
 save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
 load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
-if os.path.exists('add_item.json'):
-    if os.path.getsize('add_item.json') > 0:
-        my_list = load_from_json_file('add_item.json')
+filename = "add_item.json"
+
+# 1. Load existing data if the file exists, otherwise start with an empty list
+if os.path.exists(filename):
+    items = load_from_json_file(filename)
 else:
-    my_list = []
+    items = []
 
-for elem in range(1, len(sys.argv)):
-    my_list.append(sys.argv[elem])
+# 2. Add command line arguments (skipping the script name at index 0)
+# sys.argv[1:] captures everything after the filename
+items.extend(sys.argv[1:])
 
-save_to_json_file(my_list, 'add_item.json')
+# 3. Save the updated list back to the file
+save_to_json_file(items, filename)
