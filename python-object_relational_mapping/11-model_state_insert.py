@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Prints the State id by name"""
+"""Adds a new State object"""
 
 import sys
 from sqlalchemy import create_engine
@@ -18,13 +18,10 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    state = session.query(State).filter(
-        State.name == sys.argv[4]
-    ).first()
+    new_state = State(name="Louisiana")
+    session.add(new_state)
+    session.commit()
 
-    if state:
-        print(state.id)
-    else:
-        print("Not found")
+    print(new_state.id)
 
     session.close()
