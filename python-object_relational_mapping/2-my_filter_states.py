@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Lists states starting with N"""
+"""Filter states by user input"""
 
 import MySQLdb
 import sys
@@ -15,10 +15,9 @@ if __name__ == "__main__":
     )
 
     cur = conn.cursor()
-    cur.execute(
-        "SELECT * FROM states WHERE name LIKE BINARY 'N%' "
-        "ORDER BY states.id ASC"
-    )
+    query = "SELECT * FROM states WHERE BINARY name = '{}' " \
+            "ORDER BY states.id ASC".format(sys.argv[4])
+    cur.execute(query)
 
     for row in cur.fetchall():
         print(row)
