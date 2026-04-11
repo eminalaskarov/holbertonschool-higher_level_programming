@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Lists all State objects containing the letter 'a'"""
+"""Prints the State id by name"""
 
 import sys
 from sqlalchemy import create_engine
@@ -18,11 +18,13 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    states = session.query(State).filter(
-        State.name.like('%a%')
-    ).order_by(State.id)
+    state = session.query(State).filter(
+        State.name == sys.argv[4]
+    ).first()
 
-    for state in states:
-        print("{}: {}".format(state.id, state.name))
+    if state:
+        print(state.id)
+    else:
+        print("Not found")
 
     session.close()
