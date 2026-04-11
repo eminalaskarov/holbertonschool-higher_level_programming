@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Safe filter states by user input"""
+"""Lists all cities with their state names"""
 
 import MySQLdb
 import sys
@@ -16,8 +16,9 @@ if __name__ == "__main__":
 
     cur = conn.cursor()
     cur.execute(
-        "SELECT * FROM states WHERE name = %s ORDER BY states.id ASC",
-        (sys.argv[4],)
+        "SELECT cities.id, cities.name, states.name "
+        "FROM cities JOIN states ON cities.state_id = states.id "
+        "ORDER BY cities.id ASC"
     )
 
     for row in cur.fetchall():
