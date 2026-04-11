@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Filter states by user input"""
+"""Safe filter states by user input"""
 
 import MySQLdb
 import sys
@@ -15,9 +15,10 @@ if __name__ == "__main__":
     )
 
     cur = conn.cursor()
-    query = "SELECT * FROM states WHERE BINARY name = '{}' " \
-            "ORDER BY states.id ASC".format(sys.argv[4])
-    cur.execute(query)
+    cur.execute(
+        "SELECT * FROM states WHERE name = %s ORDER BY states.id ASC",
+        (sys.argv[4],)
+    )
 
     for row in cur.fetchall():
         print(row)
